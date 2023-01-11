@@ -72,10 +72,10 @@ else                                                                    \
 }                                                                       \
 })                                                                      \
 
-void checkAndAlert(BatteryCharacter batteryChar, double temperatureInC, void (*alterType) (BreachType getbreachType));
+void checkAndAlert(BatteryCharacter batteryChar, float temperatureInC, void (*alterType) (BreachType getbreachType));
 
-BreachType inferBreach(double value, double lowerLimit, double upperLimit);
-BreachType classifyTemperatureBreach(BatteryCharacter batteryChar, double temperatureInC);
+BreachType inferBreach(float value, float lowerLimit, float upperLimit);
+BreachType classifyTemperatureBreach(BatteryCharacter batteryChar, float temperatureInC);
 
 void sendToController(BreachType getbreachType);
 void sendToEmail(BreachType getbreachType);
