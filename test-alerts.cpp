@@ -8,13 +8,13 @@ TEST_CASE("infers the breach according to limits") {
   batteryChar.coolingType = PASSIVE_COOLING;
   batteryChar.brand = LI_ION_BATTERY;
   
-  checkAndAlert(batteryChar, 42, sendToEmail_forTesting);
+  checkAndAlert(batteryChar, 39, sendToEmail_forTesting);
   REQUIRE(breachType == TOO_HIGH);
-  checkAndAlert(batteryChar, 20, sendToEmail_forTesting);
+  checkAndAlert(batteryChar, 35, sendToEmail_forTesting);
   REQUIRE(breachType == NORMAL);
   checkAndAlert(batteryChar, -7, sendToEmail_forTesting);
   REQUIRE(breachType == TOO_LOW);
-  checkAndAlert(batteryChar, -10, sendToController_forTesting);
+  checkAndAlert(batteryChar, -5, sendToController_forTesting);
   REQUIRE(breachType == TOO_LOW);
   
   batteryChar.coolingType = MED_ACTIVE_COOLING;
