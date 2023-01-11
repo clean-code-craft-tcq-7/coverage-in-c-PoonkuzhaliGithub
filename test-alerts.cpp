@@ -10,33 +10,26 @@ TEST_CASE("infers the breach according to limits") {
   
   checkAndAlert(batteryChar, 42, sendToEmail_forTesting);
   REQUIRE(breachType == TOO_HIGH);
-  
   checkAndAlert(batteryChar, 20, sendToEmail_forTesting);
   REQUIRE(breachType == NORMAL);
-  
   checkAndAlert(batteryChar, -7, sendToEmail_forTesting);
   REQUIRE(breachType == TOO_LOW);
-  
   checkAndAlert(batteryChar, -10, sendToController_forTesting);
   REQUIRE(breachType == TOO_LOW);
   
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   checkAndAlert(batteryChar, 40, sendToEmail_forTesting);
   REQUIRE(breachType == NORMAL);
-  
   checkAndAlert(batteryChar, 44, sendToEmail_forTesting);
   REQUIRE(breachType == TOO_HIGH);
-  
   checkAndAlert(batteryChar, -1, sendToEmail_forTesting);
   REQUIRE(breachType == TOO_LOW);
   
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(batteryChar, 45, sendToEmail_forTesting);
   REQUIRE(breachType == NORMAL);
-  
   checkAndAlert(batteryChar, 46, sendToEmail_forTesting);
   REQUIRE(breachType == TOO_HIGH);
-  
   checkAndAlert(batteryChar, -5, sendToEmail_forTesting);
   REQUIRE(breachType == TOO_LOW);
 }
