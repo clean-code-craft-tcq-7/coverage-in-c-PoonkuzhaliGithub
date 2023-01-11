@@ -59,9 +59,7 @@ extern BreachType breachType;
 })                                                                      \
 
 #define SEND_MSG_TO_CONTROLLER(breachType)                              \
-({                                                                      \                                                 
-  printf("%x: %x\n",CONTROLLER_ID, breachType);                         \
-})                                                                      \  
+({printf("%x: %x\n",CONTROLLER_ID, breachType);})                                                                      \  
 
 #define SEND_MSG_THROUGH_EMAIL(breachType)                              \
 ({                                                                      \
