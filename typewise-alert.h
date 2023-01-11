@@ -59,18 +59,17 @@ extern BreachType breachType;
 })                                                                      \
 
 #define SEND_MSG_TO_CONTROLLER(breachType)                              \
-({printf("%x: %x\n",CONTROLLER_ID, breachType);})                                                                      \  
+({printf("%x: %x\n",CONTROLLER_ID, breachType);})  
 
 #define SEND_MSG_THROUGH_EMAIL(breachType)                              \
-({                                                                      \
-  printf("%s\n",EMAIL_ID);                                              \
-  if (TOO_LOW == breachType) {                                          \                        
-    printf("Hi, the temperature is too low\n");                         \
-  }else if (TOO_HIGH == breachType) {                                   \                        
-    printf("Hi, the temperature is too high\n");                        \
-  }else {                                                               \                        
-    /* nothing to do */                                                 \
-  }                                                                     \
+({printf("%s\n",EMAIL_ID);                                              \
+if (TOO_LOW == breachType)                                              \
+{printf("Hi, the temperature is too low\n");}                           \
+else if (TOO_HIGH == breachType)                                        \
+{printf("Hi, the temperature is too high\n");}                          \
+else                                                                    \
+{/* nothing to do */                                                    \
+}                                                                       \
 })                                                                      \
 
 void checkAndAlert(BatteryCharacter batteryChar, double temperatureInC, void (*alterType) (BreachType getbreachType));
