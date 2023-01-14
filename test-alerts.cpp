@@ -4,8 +4,5 @@
 #include "typewise-alert.h"
 
 TEST_CASE("infers the breach according to limits") {
-  BatteryCharacter batteryChar;
-  batteryChar.coolingType = PASSIVE_COOLING;
-  batteryChar.brand = LI_ION_BATTERY;
-
+  REQUIRE(inferBreach(12, 20, 30) == TOO_LOW);
 }
